@@ -1,1 +1,82 @@
+/* ====== Base layout (welcome-test) ====== */
+:root{
+  /* Band height locked to viewport height */
+  --band-h: 100svh;
 
+  /* Horizontal rail width (adjust as needed) */
+  --rail-w: 200svh;
+
+  /* Colors */
+  --bg: #0d161d;
+  --fg: #e7f1ff;
+}
+
+/* Resets */
+*{ box-sizing: border-box; }
+html, body{
+  margin: 0;
+  height: 100svh;
+  background: var(--bg);
+  color: var(--fg);
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Horizontal scroller */
+.hwrap{
+  height: 100svh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  display: grid;
+  align-items: center;
+}
+.hwrap::-webkit-scrollbar{ height: 8px; }
+.hwrap::-webkit-scrollbar-thumb{ background: #2c2c32; border-radius: 8px; }
+
+/* Rail */
+.rail{
+  position: relative;
+  height: var(--band-h);
+  width: max(100%, var(--rail-w));
+  padding: 0;
+  --group-left: -25svh; /* move entire collage left/right */
+}
+
+/* Slot */
+.slot{
+  --left: 0svh;
+  --scale: 1;
+  --y: 0svh;
+  --x: 0svh;
+  --rot: 0deg;
+  --z: 1;
+
+  position: absolute;
+  left: calc(var(--left) + var(--group-left));
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  height: var(--band-h);
+  transform: translate(var(--x), calc(-1 * var(--y))) rotate(var(--rot));
+  transform-origin: center bottom;
+  z-index: var(--z);
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Slot images scale with band height */
+.slot img{
+  height: calc(var(--band-h) * var(--scale));
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Remove drop-shadows globally (for parity with prod) */
+.slot img{
+  filter: none !important;
+}
