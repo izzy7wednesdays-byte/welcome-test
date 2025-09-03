@@ -1,1 +1,7 @@
-
+/* ====== Per-slot positions (welcome-only) ====== */
+#special-message { --left:-26svh; --scale:1.12; --y:20svh; --z:1; }
+#izzymacarthur   { --left:18svh;  --scale:.15;  --y:65svh; --x:8svh; --z:2; }
+#tracklist       { --left:91svh;  --scale:.42;  --y:59svh; --x:15svh; --rot:8deg; --z:2; pointer-events:none; }
+#torn-note       { --left:11svh;  --scale:.68;  --y:-9svh; --x:-2svh; --z:3; pointer-events:none; }
+#the-story-behind{ --left:65svh;  --scale:.10;  --y:39svh; --z:4; pointer-events:none; }
+#album-title     { --left:72svh;  --scale:.21;  --y:20svh; --x:-6svh; --z:5; pointer-events:none; }
